@@ -2,8 +2,8 @@
 
 ## Repository
 
-- [ ] Fresh repository with no inherited private history.
-- [ ] Repository root is exactly this curated tree; the history gate inspects at least one commit and reports the count.
+- [x] Fresh repository with no inherited private history.
+- [x] Repository root is exactly this curated tree; the history gate inspects at least one commit and reports the count.
 - [ ] Public repository URL and visibility verified.
 - [x] MIT `LICENSE` selected by the owner and present.
 - [x] Source-dependency licenses recorded; external model artifact explicitly excluded from distribution and license grant.
@@ -25,7 +25,7 @@
 - [x] Clean-room build from an exact allowlist-only temporary export; Git checkout replay remains part of the history gate.
 - [x] Privacy, secrets, network/process, event-synthesis, and artifact scans.
 - [x] macOS 14 is disclosed as an unverified deployment target; current automated build evidence is from macOS 15.
-- [ ] Full Git history privacy scan.
+- [x] Full Git history privacy scan.
 - [ ] CI passes from a private remote rehearsal before repository visibility changes to public.
 - [x] License gate.
 
