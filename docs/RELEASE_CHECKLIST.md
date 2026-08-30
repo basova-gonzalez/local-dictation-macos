@@ -6,6 +6,7 @@
 - [x] Repository root is exactly this curated tree; the history gate inspects at least one commit and reports the count.
 - [x] Every commit in the `v0.1.0` baseline has the owner-approved author and committer identity `Ekaterina Básova González <277624626+basova-gonzalez@users.noreply.github.com>`; no legacy or personal email appears in Git metadata.
 - [x] Private rehearsal repository URL and `PRIVATE` visibility verified.
+- [x] Public repository URL and `PUBLIC` visibility verified after the private rehearsal passed.
 - [x] MIT `LICENSE` selected by the owner and present.
 - [x] Source-dependency licenses recorded; external model artifact explicitly excluded from distribution and license grant.
 - [x] No internal prompts, incident history, private names, dashboard/runtime files, or user paths.
@@ -44,8 +45,8 @@
 
 - [x] Owner authorized private repository creation; the rehearsal repository was created as private.
 - [x] Owner explicitly authorizes changing repository visibility from private to public.
-- [ ] Immediately after public visibility, enable and verify private vulnerability reporting before announcing or tagging the release.
-- [x] Owner authorizes profile/About updates.
+- [x] Immediately after public visibility, private vulnerability reporting was enabled and verified before announcing or tagging the release.
+- [x] Owner-authorized repository About/topics and GitHub profile copy were applied.
 - [x] `CHANGELOG.md` replaces the `v0.1.0` `TBD` date with the actual release date.
-- [ ] Tag and release notes say source-only experimental Russian alpha.
-- [ ] No `.app`, Developer ID, notarization, or updater claim.
+- [x] Tag and release notes are constrained to a source-only experimental Russian alpha.
+- [x] No `.app`, Developer ID, notarization, updater claim, model, or tokenizer asset is attached.
