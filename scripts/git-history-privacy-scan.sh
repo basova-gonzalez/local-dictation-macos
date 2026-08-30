@@ -31,6 +31,28 @@ if [[ "${COMMIT_COUNT}" -eq 0 ]]; then
     exit 1
 fi
 
+# Freeze the owner identity for the initial public baseline without imposing it
+# on future contributor commits. Before v0.1.0 exists, HEAD is the candidate;
+# after tagging, only the commits reachable from that release are inspected.
+readonly RELEASE_IDENTITY_REF="$(
+    if /usr/bin/git -C "${PROJECT_DIR}" rev-parse --verify 'refs/tags/v0.1.0^{commit}' >/dev/null 2>&1; then
+        echo 'refs/tags/v0.1.0'
+    else
+        echo 'HEAD'
+    fi
+)"
+readonly EXPECTED_RELEASE_IDENTITY='Ekaterina Básova González <277624626+basova-gonzalez@users.noreply.github.com>'
+
+while IFS= read -r commit; do
+    AUTHOR_IDENTITY="$(/usr/bin/git -C "${PROJECT_DIR}" show -s --format='%an <%ae>' "${commit}")"
+    COMMITTER_IDENTITY="$(/usr/bin/git -C "${PROJECT_DIR}" show -s --format='%cn <%ce>' "${commit}")"
+    if [[ "${AUTHOR_IDENTITY}" != "${EXPECTED_RELEASE_IDENTITY}" ]] \
+        || [[ "${COMMITTER_IDENTITY}" != "${EXPECTED_RELEASE_IDENTITY}" ]]; then
+        echo "History scan failed: release-baseline author/committer identity mismatch in ${commit}." >&2
+        exit 1
+    fi
+done < <(/usr/bin/git -C "${PROJECT_DIR}" rev-list "${RELEASE_IDENTITY_REF}")
+
 readonly PRIVATE_PATH_PATTERN='(^|/)(Models?|Audio|Recordings?|History)(/|$)|\.(wav|m4a|mp3|webm|sqlite|p12|log|mlmodelc|mlpackage|safetensors)$|(^|/)\.env(\.|$)'
 history_contains_path() {
     local commit

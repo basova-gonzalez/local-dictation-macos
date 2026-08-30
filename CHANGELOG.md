@@ -6,7 +6,7 @@ All notable changes to Local Dictation will be documented here.
 
 No unreleased changes.
 
-## [0.1.0] - TBD
+## [0.1.0] - 2026-08-30
 
 ### Added
 
