@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  source-gates:
+    runs-on: macos-15
+    timeout-minutes: 30
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.2.app/Contents/Developer
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: History privacy
+        run: ./scripts/git-history-privacy-scan.sh
+      - name: Privacy and static security
+        run: ./scripts/privacy-scan.sh
+      - name: Pinned model metadata
+        run: ./scripts/check-manifests.sh
+      - name: Exact dependency lock
+        run: ./scripts/check-dependencies.sh
+      - name: Toolchain, tests, and source build
+        run: ./scripts/run-tests.sh
+      - name: License completeness
+        run: ./scripts/license-gate.sh

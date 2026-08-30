@@ -1,0 +1,31 @@
+.build/
+/build/
+DerivedData/
+.swiftpm/
+*.xcuserstate
+xcuserdata/
+
+# Model and tokenizer assets are provisioned outside Git.
+/Models/
+/models/
+*.mlmodel
+*.mlmodelc
+*.mlpackage
+*.safetensors
+*.bin
+
+# Audio, local state, logs, and credentials.
+*.wav
+*.m4a
+*.mp3
+*.webm
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.log
+.env
+.env.*
+*.cer
+*.p12
+*.mobileprovision
+.DS_Store

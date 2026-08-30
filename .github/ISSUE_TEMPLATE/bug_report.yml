@@ -1,0 +1,58 @@
+name: Content-free bug report
+description: Report a reproducible Local Dictation problem without sharing private content
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include dictated text, audio, clipboard contents, user paths, hardware identifiers, credentials, or private screenshots. Security vulnerabilities belong in a private GitHub Security Advisory after publication.
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: v0.1.0 or commit SHA
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: macOS 14.x
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: First failing stage
+      options:
+        - Permission or onboarding
+        - Hotkey or recording start
+        - Recording finish or audio decode
+        - Local transcription
+        - Text insertion
+        - Cancellation or cleanup
+        - Build or setup
+        - Unknown
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Content-free reproduction structure
+      description: Describe actions and state only. Use a fixed non-personal phrase; do not write the phrase here.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and observed behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I removed dictated text, audio, clipboard data, paths, identifiers, credentials, and private screenshots.
+          required: true
