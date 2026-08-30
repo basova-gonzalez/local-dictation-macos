@@ -4,7 +4,7 @@
 
 - [x] Fresh repository with no inherited private history.
 - [x] Repository root is exactly this curated tree; the history gate inspects at least one commit and reports the count.
-- [ ] Public repository URL and visibility verified.
+- [x] Private rehearsal repository URL and `PRIVATE` visibility verified.
 - [x] MIT `LICENSE` selected by the owner and present.
 - [x] Source-dependency licenses recorded; external model artifact explicitly excluded from distribution and license grant.
 - [x] No internal prompts, incident history, private names, dashboard/runtime files, or user paths.
@@ -26,7 +26,7 @@
 - [x] Privacy, secrets, network/process, event-synthesis, and artifact scans.
 - [x] macOS 14 is disclosed as an unverified deployment target; current automated build evidence is from macOS 15.
 - [x] Full Git history privacy scan.
-- [ ] CI passes from a private remote rehearsal before repository visibility changes to public.
+- [x] CI passes from a private remote rehearsal before repository visibility changes to public.
 - [x] License gate.
 
 ## Manual Russian alpha gate
@@ -41,8 +41,9 @@
 
 ## External actions
 
-- [ ] Owner authorizes repository creation and publication.
-- [ ] Private vulnerability reporting / GitHub Security Advisories is enabled and verified before public visibility.
+- [x] Owner authorized private repository creation; the rehearsal repository was created as private.
+- [ ] Owner explicitly authorizes changing repository visibility from private to public.
+- [ ] Immediately after public visibility, enable and verify private vulnerability reporting before announcing or tagging the release.
 - [ ] Owner authorizes profile/About updates.
 - [ ] `CHANGELOG.md` replaces the `v0.1.0` `TBD` date with the actual release date.
 - [ ] Tag and release notes say source-only experimental Russian alpha.
